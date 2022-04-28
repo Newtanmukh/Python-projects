@@ -2,16 +2,18 @@
 
 //Then,this inputArr will basically take all the things from index 2 onwards(index 2 included).
 let inputArr=process.argv.slice(2);
+let fs=require("fs"); //a function called sfexistssync will let you know if a path is valid or not.
+let path=require("path"); // PATH JOIN, to create folders.
 
 
 let command=inputArr[0];
 
 switch(command){
     case "tree":
-        treeFn(input[1]);
+        treeFn(inputArr[1]);
         break;
     case "organize":
-        organizeFn(input[1]);
+        organizeFn(inputArr[1]);
         break;
     case "help":
         helpFn();
@@ -26,7 +28,27 @@ function treeFn(dirPath){
 }
 
 function organizeFn(dirPath){
-    console.log("organize command implemented for : ",dirPath);
+    //  1. input : directory path given.
+    if(dirPath==undefined){
+        console.log("kindly enter the path.");
+        return;
+    }else{
+        let doesExist=fs.existsSync(dirPath); // WILL CHECK IF THIS PARTICULAR DIRECTORY PATH IS VALID OR NOT.
+        if(doesExist){//START ORGANIZING.
+                    //  2. create a directory called organized_files inside that directory path.
+            let destPath =  path.join(dirPath,"organized_files"); //create this organized files directory here.
+             fs.mkdirSync(destPath);
+
+        }else{
+            console.log("Kindly enter a correct path");
+            return;
+        }
+    }
+
+
+    //3. check all files to check which category they belong to of the ones present in that path.
+    //4. copy/cut files to that organized directory inside of any of that category folder.
+    //
 }
 
 function helpFn(){
