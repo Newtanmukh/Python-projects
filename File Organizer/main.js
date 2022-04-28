@@ -30,6 +30,9 @@ function organizeFn(dirPath){
 }
 
 function helpFn(){
-    console.log("help function called");
+    console.log(`List of all the commands:
+    node main.js tree "directorypath"
+    node main.js organie "directorypath"
+    node main.js help`);
 }
 
