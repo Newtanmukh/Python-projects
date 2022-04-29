@@ -65,7 +65,7 @@ function organizeFn(dirPath){
 }
 
 
-function organizeHelper(src,dest){
+function organizeHelper(src,dest){ //src is which path to organize, dest is inside which directory to organize.
 //3. check all files to check which category they belong to of the ones present in that path.
    let childNames = fs.readdirSync(src) //will give the names of all the files indide this.
    for(let i=0;i<childNames.length;i++)
@@ -90,14 +90,16 @@ function organizeHelper(src,dest){
 
 function sendFile(srcFile,dest,category){
 
-    let categoryPath = path.join(dest, category);
+    let categoryPath = path.join(dest, category);//category folder. like media etc.
     if (fs.existsSync(categoryPath) == false) {
         fs.mkdirSync(categoryPath);
     }
     let fileName = path.basename(srcFilePath);
     let destFilePath = path.join(categoryPath, fileName);
     fs.copyFileSync(srcFilePath, destFilePath);
-    fs.unlinkSync(srcFilePath);
+    fs.unlinkSync(srcFilePath);//THis command will remove the file from the original source path.
+    //so after unlinking from the original path, this will act as 'cut'.
+    //if we remove unlinksync, it will just copy.
     console.log(fileName, "copied to ", category);
 }
 
