@@ -32,8 +32,44 @@ switch(command){
 }
 
 function treeFn(dirPath){
-    console.log("Tree command implemented for the directory : ",dirPath);
+   // let destPath;
+    if(dirPath==undefined){//if no path provided at all.
+        console.log("kindly enter the path.");
+        return;
+    }else{
+        let doesExist=fs.existsSync(dirPath); // WILL CHECK IF THIS PARTICULAR DIRECTORY PATH IS VALID OR NOT.
+        if(doesExist){
+            ;
+      treeHelper(dirPath,"");
+
+        }else{
+            console.log("Kindly enter a correct path");
+            return;
+        }
+    }
 }
+
+function treeHelper(dirPath,indent){
+  //is file or folder. if file, then print
+  let isFile=fs.lstatSync(dirPath).isFile();
+
+  if(isFile==true)
+  {
+      let fileName=path.basename(dirPath);
+      console.log(indent+"├──"+fileName);
+
+  }else{
+    let dirName = path.basename(dirPath)
+        console.log(indent + "└──" + dirName);
+        let childrens = fs.readdirSync(dirPath);
+        for (let i = 0; i < childrens.length; i++) {
+            let childPath = path.join(dirPath, childrens[i]);
+            treeHelper(childPath, indent + "\t");
+        }
+  }
+}
+
+
 
 function organizeFn(dirPath){
     //  1. input : directory path given.
@@ -97,7 +133,7 @@ function sendFile(srcFile,dest,category){
     let fileName = path.basename(srcFilePath);
     let destFilePath = path.join(categoryPath, fileName);
     fs.copyFileSync(srcFilePath, destFilePath);
-    fs.unlinkSync(srcFilePath);//THis command will remove the file from the original source path.
+    //fs.unlinkSync(srcFilePath);//THis command will remove the file from the original source path.
     //so after unlinking from the original path, this will act as 'cut'.
     //if we remove unlinksync, it will just copy.
     console.log(fileName, "copied to ", category);
