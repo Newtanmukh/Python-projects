@@ -10,7 +10,9 @@ let types = {
     media: ["mp4", "mkv"],
     archives: ['zip', '7z', 'rar', 'tar', 'gz', 'ar', 'iso', "xz"],
     documents: ['docx', 'doc', 'pdf', 'xlsx', 'xls', 'odt', 'ods', 'odp', 'odg', 'odf', 'txt', 'ps', 'tex'],
-    app: ['exe', 'dmg', 'pkg', "deb"]
+    app: ['exe', 'dmg', 'pkg', "deb"],
+    python_programs: ['py'],
+    other_programs:['cpp','c']
 }
 
 
@@ -130,10 +132,10 @@ function sendFile(srcFile,dest,category){
     if (fs.existsSync(categoryPath) == false) {
         fs.mkdirSync(categoryPath);
     }
-    let fileName = path.basename(srcFilePath);
+    let fileName = path.basename(srcFile);
     let destFilePath = path.join(categoryPath, fileName);
-    fs.copyFileSync(srcFilePath, destFilePath);
-    //fs.unlinkSync(srcFilePath);//THis command will remove the file from the original source path.
+    fs.copyFileSync(srcFile, destFilePath);
+    //fs.unlinkSync(srcFile);//THis command will remove the file from the original source path.
     //so after unlinking from the original path, this will act as 'cut'.
     //if we remove unlinksync, it will just copy.
     console.log(fileName, "copied to ", category);

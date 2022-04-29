@@ -1,0 +1,10 @@
+FOR ORGANIZING : run the command below
+
+	node main.js organize "C:\Users\Newtan\Downloads"
+
+FOR TREE : run the command below
+
+	node main.js tree "C:\Users\Newtan\Downloads"       
+
+FOR HELP : run the command below
+	node main.js help
