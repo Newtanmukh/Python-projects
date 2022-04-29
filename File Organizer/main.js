@@ -18,10 +18,10 @@ let command=inputArr[0];
 
 switch(command){
     case "tree":
-        treeFn(inputArr[1]);
+        treeFn(inputArr[1]);//input directory path.
         break;
     case "organize":
-        organizeFn(inputArr[1]);
+        organizeFn(inputArr[1]);//input the directory path
         break;
     case "help":
         helpFn();
@@ -38,15 +38,16 @@ function treeFn(dirPath){
 function organizeFn(dirPath){
     //  1. input : directory path given.
     let destPath;
-    if(dirPath==undefined){
+    if(dirPath==undefined){//if no path provided at all.
         console.log("kindly enter the path.");
         return;
     }else{
         let doesExist=fs.existsSync(dirPath); // WILL CHECK IF THIS PARTICULAR DIRECTORY PATH IS VALID OR NOT.
         if(doesExist){//START ORGANIZING.
-                    //  2. create a directory called organized_files inside that directory path.
+                    //  2. create a directory called organized_files inside that given directory path.
             destPath =  path.join(dirPath,"organized_files"); //create this organized files directory here.
-            
+           
+            //destPath will now look like, dirpath\organized files.
             if(fs.existsSync(destPath)==false){
             fs.mkdirSync(destPath);//but if that directory already exists, then it creating that folder again without checking if it already exists, would have given error.
 
@@ -61,10 +62,6 @@ function organizeFn(dirPath){
 
     organizeHelper(dirPath,destPath);
 
-
-    
-    
-    //
 }
 
 
@@ -81,7 +78,7 @@ function organizeHelper(src,dest){
              console.log(childAddress[i],"belongs to --> ",category);
 
                //4. copy/cut files to that organized directory inside of any of that category folder.
-               sendFile(childAddress,dest,category);
+               sendFile(childAddress,dest,category);//dest is, under which folder we should copy this file/
 
 
        }
