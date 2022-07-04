@@ -1,0 +1,14 @@
+content based : based on the type of content we get the results. like cricket, then only cricket videos will be showed
+	example is, when we see only music, then only sweet music will be recommended
+	tags etc is created/
+
+collabrative based filter:  based on the user's interest. person A and B, same type of movies based on the User's similarity.
+
+hybrid : combination of both.
+
+
+
+
+preprocessing of data(make data ready), make model, model to website, deploy that website.
+
+
