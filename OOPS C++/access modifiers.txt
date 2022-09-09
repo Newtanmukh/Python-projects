@@ -1,0 +1,51 @@
+//here , both the private and protected members can be accessed and changed via member functions of the class itself. 
+//those member classes can be public as well !!!!!!!!!!.
+//however just like private members, protected members too can't be accessed directly by the object. we need to invoke the members functions in order to access/modify the protected members. again, these member functions can be public as well.
+//protected member can be accessed by the child subclass as well.
+//also,private and protected of a class can be accessed and modifed with the help of friend function as well, apart from using member functions.
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class person
+{
+    private:
+    int age;
+    
+    protected:
+    int name;
+    
+    public:
+    
+    void setname(int x)
+    {
+        this->name=x;
+    }
+    
+    int getname()
+    {
+        return this->name+80;
+    }
+    
+    void setage(int x)
+    {
+        this->age=x;
+    }
+    
+    int getage()
+    {
+        return this->age+80;
+    }
+};
+
+int main()
+{
+    person p;
+    p.setage(20);
+    cout<<p.getage()<<endl;
+    p.setname(10);
+    cout<<p.getname()<<endl;
+    return 0;
+}
