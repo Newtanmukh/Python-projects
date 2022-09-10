@@ -2,50 +2,241 @@ Like friend class, a friend function can be given a special grant to access priv
 A friend function can be: 
 a) A member of another class 
 b) A global function 
-
+//friend fn is never in the scope of the class
+//since not in the scope of the class, it cannot be called from object of that class. that is,can be invoked without the help of any object.
+//can be declared inside public or private section of the class.
 //too many friend functions might lessen the value of encapsulation.
 //friendship is not mutual.  If class A is a friend of B, then B doesn’t become a friend of A automatically.
 //friendship is NOT inherited.
 that is, If a base class has a friend function, then the function doesn’t become a friend of the derived class(es). 
 //friend functions cannot do runtime polymorphism in its members. also it violates data hiding.
+//usually containes arguments as objects.
+//The keyword “friend” is placed only in the function declaration of the friend function and not in the function definition.
+
+
+
+
 
 FRIEND CLASS :
 
-#include <iostream>
-class A {
-private:
-	int a;
+#include<iostream>
+using namespace std;
 
-public:
-	A() { a = 0; }
-	friend class B; // Friend Class
+class A
+{
+	int x;
+		public:
+			
+	A()
+	{
+		x=10;
+	}
+	
+	void show()
+	{
+	    cout<<this->x<<endl;
+	}
+	
+	friend class B; //friend class
 };
 
-class B {
-private:
-	int b;
-
-public:
-	void showA(A& x)
-	{
-		// Since B is friend of A, it can access
-		// private members of A
-		std::cout << "A::a=" << x.a;
-	}
+class B
+{
+	public:
+	    
+	    void set(A &t)  //with the help of the friend class, we can see as well as modify the values of the class members.
+	    {
+	        t.x=90;
+	    }
+	    
+		void display(A &t)
+		{
+			cout<<endl<<"The value of x="<<t.x<<endl;
+		}
 };
 
 int main()
 {
-	A a;
-	B b;
-	b.showA(a);
+	A _a;
+	B _b;
+	_b.display(_a);
+	_b.set(_a);
+	_b.display(_a);
+	_a.show();
 	return 0;
 }
 
 
 ####################################################################
 
-FRIEND FUNCTION :
+FRIEND FUNCTION :  //NOTE: if we wish to modify the values of this class  as well using the friend function, then we will need to pass the object by reference. (& operator)
+
+#include<iostream>
+using namespace std;
+
+class Largest
+{
+	int a,b,m;
+	public:
+		void set_data();
+		//GLOBAL friend function
+		friend void find_max(Largest &);//friend function.	
+		void see()
+		{
+		    cout<<this->m<<endl;
+		}
+};
+
+void Largest::set_data()
+{
+	cout<<"Enter the First No:";
+	cin>>a;
+	cout<<"Enter the Second No:";
+	cin>>b;
+}
+
+
+
+void find_max(Largest &t)
+{
+	if(t.a>t.b)
+		t.m=t.a;
+	else
+		t.m=t.b;
+		
+		cout<<"Maximum Number is\t"<<t.m<<endl;
+}
+
+int main()
+{
+	Largest l;
+	l.set_data();
+	find_max(l);
+	l.see();
+	return 0;
+}
+
+
+####################################################################
+
+FRIEND FUNCTION TO MORE THAN ONE CLASSES.
+
+// Prog: Demonstrates how friend functions work as a bridge between the classes
+
+//incase we want to access the private and protected data member of more than one class.
+
+#include<iostream>
+using namespace std;
+
+class ABC;// forward declaration
+
+class XYZ
+{
+	int x;
+	public:
+		void set_data(int a)
+		{
+			x=a;
+		}
+		
+		friend void max(XYZ&,ABC&);
+};
+
+
+class ABC
+{
+	int y;
+	public:
+		void set_data(int a)
+		{
+			y=a;
+		}	
+		
+	friend void max(XYZ&,ABC&);
+};
+
+void max(XYZ &t1,ABC &t2)
+{
+	if(t1.x>t2.y)
+		cout<<t1.x;
+	else
+		cout<<t2.y;
+}
+
+int main()
+{
+	ABC _abc;
+	XYZ _xyz;
+	_xyz.set_data(45);
+	_abc.set_data(35);
+	
+	max(_xyz,_abc); //callin friend function
+	return 0;
+}
+
+
+
+##########################################################################
+
+Codewithharry example :
+
+#include<iostream>
+using namespace std;
+
+// 1 + 4i
+// 5 + 8i
+// -------
+// 6 + 12i 
+class Complex{
+    int a, b;
+    friend Complex sumComplex(Complex o1, Complex o2);
+    public:
+        void setNumber(int n1, int n2){
+            a = n1;
+            b = n2;
+        }
+
+        // Below line means that non member - sumComplex funtion is allowed to do anything with my private parts (members)
+        void printNumber(){
+            cout<<"Your number is "<<a<<" + "<<b<<"i"<<endl;
+        }
+};
+
+Complex sumComplex(Complex o1, Complex o2){
+    Complex o3;
+    o3.setNumber((o1.a + o2.a), (o1.b+o2.b))
+    ;
+    return o3;
+}
+
+int main(){
+    Complex c1, c2, sum;
+    c1.setNumber(1, 4);
+    c1.printNumber();
+
+    c2.setNumber(5, 8);
+    c2.printNumber();
+
+    sum = sumComplex(c1, c2);
+    sum.printNumber();
+
+    return 0;
+}
+
+/* Properties of friend functions
+1. Not in the scope of class
+2. since it is not in the scope of the class, it cannot be called from the object of that class. c1.sumComplex() == Invalid
+3. Can be invoked without the help of any object
+4. Usually contans the objects as arguments
+5. Can be declared inside public or private section of the class
+6. It cannot access the members directly by their names and need object_name.member_name to access any member.
+
+*/
+
+
+#####################################################################
+
+//MEMBER FUNCTION OF ANOTHER CLASS AS A FRIEND.
 
 #include <iostream>
 
@@ -62,7 +253,7 @@ private:
 
 public:
 	B() { b = 0; }
-	friend void A::showB(B& x); // Friend function
+	friend void A::showB(B& x); // Member function of the class B is acting as a friend function here.
 };
 
 void A::showB(B& x)
@@ -79,3 +270,4 @@ int main()
 	a.showB(x);
 	return 0;
 }
+

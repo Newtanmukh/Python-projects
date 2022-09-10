@@ -1,0 +1,134 @@
+*Default Constructor 
+*Parameterised constructor
+*copy constructor          :         Deep/shallow copy and copy vs assignment operator.
+*virtual constructor
+*virtual copy constructor
+* how constructors different from normal member fn.
+* can we have more than one constructor in class ------- constructor overloading.
+
+
+
+
+
+1) Default constructor : it is invoked at the time of object creation. decided by the compiler.
+
+
+#include <iostream>  
+using namespace std;  
+class Employee  
+ {  
+   public:  
+        Employee()    
+        {    
+            cout<<"Default Constructor Invoked"<<endl;    
+        }    
+};  
+int main(void)   
+{  
+    Employee e1; //creating an object of Employee   
+    Employee e2;   
+    return 0;  
+}  
+
+
+
+
+
+2) Parameterized Constructor : 
+
+
+#include <iostream>
+using namespace std;
+class Employee {
+   public:
+       int id;//data member (also instance variable)    
+       string name;//data member(also instance variable)
+       float salary;
+       Employee(int i, string n, float s)  
+        {  
+            id = i;  
+            name = n;  
+            salary = s;
+        }  
+       void display()  
+        {  
+            cout<<id<<"  "<<name<<"  "<<salary<<endl;  
+        }  
+};
+int main(void) {
+    Employee e1 (101, "Sonoo", 890000); //creating an object of Employee 
+    Employee e2(102, "Nakul", 59000); 
+    e1.display();  
+    e2.display();  
+    return 0;
+}
+
+
+
+
+3) copy Constructor :
+A copy constructor is a member function that initializes an object using another object of the same class.
+ClassName (const ClassName &old_object); 
+
+//it is used to initialize the members of a newly created object by copying the members of an 
+already existing object.
+//copy constructor takes a reference to an object of the same class as an argument.
+//process of initializing members of an object through a copy constructor is known as copy initialization/
+//it is also called member wise initializaton because the copy constructor initializes one object with existing object both,both belonging to the same class on a member by member copy basis
+//copy constructor can be defined by programmer,if programmer does not define the copy cons, the compiler will do it for us. then, the C++ compiler creates a default copy constructor for each class which does a member-wise copy between objects.
+//The compiler-created copy constructor works fine in general. We need to define our own copy constructor only if an object has pointers or any runtime allocation of the resource like file handle, a network connection, etc.
+
+
+// Example: Explicit copy constructor
+
+#include<iostream>
+using namespace std;
+
+class Sample
+{
+	int id;
+	public:
+	void init(int x)
+	{
+		id=x;	
+	}	
+	Sample(){} //default constructor with empty body
+	
+	Sample(Sample &t) // User defined copy constructor. if we had not defined it here, then a default constructor would have then been supplied by the compiler.
+	{
+		id=t.id;
+	}
+	void display()
+	{
+		cout<<endl<<"ID="<<id;
+	}
+};
+int main()
+{
+	Sample obj1;
+	obj1.init(10);
+	obj1.display();
+	
+	Sample obj2(obj1); //or obj2=obj1; copy constructor called
+	obj2.display();
+	return 0;
+}
+
+
+IMPORTANT :
+
+//default constructor does only shallow copy.
+//user defined copy constructor does deep copy.
+//In a user-defined copy constructor, we make sure that pointers (or references) of copied objects point to new memory locations.  
+//deep copy clones the underlying data. it is not shared between the original and the copy.
+//shallow copy is quicker. rather than creating a copy , it simply copies over the pointer.
+
+
+
+
+
+
+	
+
+
+

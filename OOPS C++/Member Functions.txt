@@ -1,0 +1,30 @@
+5 types of functions :
+
+1)simple member functions.
+
+2)static member functions : these functions can be called directly from the class, without even the need of creating the object !\
+this can only access the static data members as well as the static member functions.
+Example : 	
+		class X
+			{
+ 		   public:
+  		  static void f()
+  		  {
+   		     // statement
+   		 }
+		};
+
+		int main()
+		{
+  		  X::f();   // calling member function directly with class name
+		}
+
+3)const : void function() const 
+		{
+		}
+	const keyword makes variables constant, such functions can never modify the object or its related data members
+
+4) inline functions : the ones defined inside
+
+5) friend functions  :give access to private amd protected members by non-class functions.
+		we can even define a member function of other class as a friend.
