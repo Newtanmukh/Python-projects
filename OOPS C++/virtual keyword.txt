@@ -1,0 +1,21 @@
+virtual functions are mainly used in rnuntime polymorphism.
+
+virtual function is a member function which is declared in a base class and is redefined
+(i.e, overridden) by a derived class.
+
+1) virtual function cannot be static
+2) it can be friend function of another class
+3) should be accessed using pointer or reference of base class (to achieve runtime polymorphism)
+4) prototype of virtual functions should be same in base and derived class.
+5) they are always defined in the base class and overridden in the derived class
+NOTE: it is NOT mandatory for the derived class to override or redefine the virtual function, the base class of the function can be used in this case.
+6) class may be virtual destructor.
+7) virtual function is binded at runtime.
+
+NOTE : in regular way, if we had just created an object of pointer type of base class and had used this to point to an object of derived class, then if same functions were defined in both base and derived, then the function of the base class would have been called. this is due to late binding.
+	however if we had had instead declared this common function as virtual, then this would not have happened.
+
+	we decided at runtime which one is going to get called.
+
+	*Binding of these type of functions happen at runtime.
+	address of the function associating itself with the object(compiler bind) that is,binding happens at runtime and is done by the compiler.

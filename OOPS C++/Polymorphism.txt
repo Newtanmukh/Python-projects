@@ -1,0 +1,75 @@
+Polymorphism is of two type :
+1) compile time
+2) run time
+
+					COMPILE TIME
+
+* at compile time it is decided which function to run. (early/static binding).
+* compiler already has decided which function to bind to. thats why is called early or static binding/
+* two types : function OVERLOADING (change datatype of paramaters,number of paramaters etc.) and operator OVERLOADING. 
+* we can overload methods,constructor and indexed properties.
+* advantage of overloading is that you dont need to define separate function names.
+* incase of function overloading, we might face ambugity sometimes, when the compiler is unable to decide which one to use. one of the example is when two different functions differ only in the return type of data type. another one is when one is static and other is normal.        for more details visit : https://www.javatpoint.com/cpp-overloading
+* incase of operator overloading,  the operator is overloaded to provide the special meaning to the user-defined data type.advantage of Operators overloading is to perform different operations on the same operand.
+* operators tha cannot be overloaded : (. , sizeof, *, ?*) etc.
+
+SYNTAX OF OPERATOR OVERLOADING : 
+if defined outside class : 
+return_type class_name  : : operator op(argument_list)  
+{  
+     // body of the function.  
+}  
+
+else
+
+return_type operator(argument_list)  
+{  
+     // body of the function.  
+}  
+
+
+example :
+
+void operator ++()         {     
+          num = num+2;     
+       }    
+
+
+
+
+
+
+void A :: operator+(A a)  
+{  
+     
+    int m = x+a.x;  
+    cout<<"The result of the addition of two objects is : "<<m;  
+  
+}  
+
+    A a1(5);  
+    A a2(4);  
+    a1+a2;  
+    return 0;  
+
+OUTPUT : The result of the addition of two objects is : 9 
+
+
+
+
+
+					RUN TIME 
+* this is also known as Function OVERRIDING.
+*achieved with the help of virtual functions. (dynamic/late binding)
+*compiler will delay the decision that like which function to run. it will be decided at the run time.
+* compiler does not take decision by looking at our code here.
+* when program is running, then it will be decided which function to run.
+
+
+
+
+
+Overriding of functions occurs when one class is inherited from another class. Overloading can occur without inheritance.
+
+
+

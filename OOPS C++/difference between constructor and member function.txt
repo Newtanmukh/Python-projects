@@ -1,0 +1,9 @@
+ constructor is different from normal functions in following ways:
+
+1)Constructor has same name as the class itself
+2)Constructors don’t have return type
+3)A constructor is automatically called when an object is created.
+4)If we do not specify a constructor, C++ compiler generates a default constructor for us (expects no parameters and has an empty body).
+
+//also, sometimes we might need different constructors to implement our class to allow omitting some of the paramaters that we set up already.
+

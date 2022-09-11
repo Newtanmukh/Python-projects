@@ -1,0 +1,5 @@
+abstract class is the one which has atleast pure virtual function.
+
+virtual void display()=0;  //by doing this, we will then have to compulsarily define this function in the derived class.
+also, we cannot create object of abstract class.
+pure virtual function is used to make abstract base class.
