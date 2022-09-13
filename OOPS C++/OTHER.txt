@@ -1,0 +1,65 @@
+Derived classes are used for augmenting the functionality of base class by 
+adding or modifying the properties and methods to suit the requirements of 
+the specialization necessary for derived class. 
+This allows for defining virtual methods that form the means to implement polymorphism, 
+which allows a group of objects to work in uniform manner.
+ Thus, the inherent advantages of inheritance and polymorphism like 
+code reuse, faster development, easy maintenance, etc., are realized.
+
+
+can virtual functions be private ? Yes,they can.
+https://www.geeksforgeeks.org/can-virtual-functions-be-private-in-c/
+
+
+
+
+How to seal a class, that is how can we ensure that it DOES not gets inherited?
+Solution: just declare the class as final. this will ensure that this class will never get inherited.
+class A final  //note final keyword is used after the class name
+{
+   //...
+};
+
+class B : public A  //error - because class A is marked final (sealed).
+{                   //        so A cannot be derived from.
+   //...
+};
+
+
+
+
+
+
+
+
+can we call a method inside a class with \out creating an object out of it?
+Sol : Yes, by declaring the method as static.
+
+
+
+override keyword ?
+Sol : https://www.geeksforgeeks.org/override-keyword-c/
+There is a method with the same name in the parent class.
+The method in the parent class is declared as “virtual” which means it was intended to be rewritten.
+The method in the parent class has the same signature as the method in the subclass.
+
+
+
+
+
+
+
+
+
+
+
+Q. what is aggreagation, composition, abstraction etc.?
+SOL :  visit this link : https://javapapers.com/oops/association-aggregation-composition-abstraction-generalization-realization-dependency/
+
+
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+class base{
+    public:
+    int a;
+    int b;
+    
+    void setd(int x)
+    {
+        this->d=x;
+    }
+    
+    protected:
+    int c;
+    void test()
+    {
+    cout<<"Hi i am protected"<<endl;
+    }
+    
+    private:
+    int d;
+    void talk()
+    {
+        cout<<"Hi i am private"<<endl;
+    }
+};
+
+class derived:public base{
+    public:
+    
+    derived()
+    {
+        a=3;
+        b=2;
+        c=5;
+        setd(6);
+    }
+    
+    int get()
+    {
+        return c;
+    }
+    
+    void call_test()
+    {
+        test();
+    }
+    
+};
+
+
+using namespace std;
+
+int main()
+{
+    derived der;
+    
+    cout<<der.a<<der.b<<der.get()<<endl;
+    der.call_test();
+    //der.talk();
+    
+   
+    
+    return 0;
+}

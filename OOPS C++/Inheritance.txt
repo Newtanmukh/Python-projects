@@ -1,0 +1,84 @@
+Inheritance is very essential for expandability.
+Inheritance is used to declare characteristics of classes inheriting it,
+without giving its implementation.
+It is one of the most important concept of OOPS. 
+After creating one super class you can use its features to create several sub classes
+ that inherits some features from its parent class and have few additional features. 
+Inheritance enables code reusability and saves time.
+
+
+C++ supports many types of inheritance : 
+Single  :  only once
+Multiple  :  one derived class from many bases  (example is ertiga from "maruti" and "suzuki")
+Hierirachial  :  many derived from one base
+Multilevel  :  keep on deriving
+Hybrid  :  see this link  : https://www.javatpoint.com/cpp-inheritance
+
+
+NOTE: we can access the protected memebers in derived clas,, but NOT DIRECTLY !!!. we will need memeber 
+functiond defined publicily in the derived class which can set the protected members in the baase class.
+
+In case of private member of base class, we cannot access the private membersd and data even my using member
+functions in the derived class !!!!
+also, the private member of base class are never inherited !!!.
+
+
+
+
+
+Ambuigity in inheritance:
+sometimes it might occur that like in multiple or hybrid inheritance, a function with same name
+might occur in more than one base class. in that case, if we try to call a function, it will give us ambuguity.
+we can solve this problem in two ways :
+*virtual function
+*Resolution operator.
+
+EXAMPLE :
+
+class C : public A, public B  
+{  
+    void view()  
+    {  
+        A :: display();         // Calling the display() function of class A.  
+        B :: display();         // Calling the display() function of class B.  
+  
+    }  
+};  
+
+
+
+#######################################################################################################
+Base class visibility   #                            Derived Class Visibility                         #
+#######################################################################################################
+(Method Type)		#	public 			protected 		private               #
+#######################################################################################################
+Private			#	Not inherited          Not inherited  		not inherited         #
+protected               #     	protected  	       protected                private               #
+Public			#       public                 Protected                Private               #
+#######################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q. Does Function Overloading happens in Inheritance?
+SOL : Overloading doesn’t work for derived class in the C++ programming language. 
+There is no overload resolution between Base and Derived.
+ The compiler looks into the scope of Derived, 
+finds the single function “double f(double)” and calls it.
+ It never disturbs the (enclosing) scope of Base.
+ In C++, there is no overloading across scopes and derived class scopes are 
+not an exception to this general rule.
+
+you can however overload the function of a base clas in the derived class using the 'using' keyword.
+This keyword brings a base class method ​or variable into the current class’s scope.
+SEE This link to read more about this issue : https://www.geeksforgeeks.org/hiding-of-all-overloaded-methods-with-same-name-in-base-class-in-cpp/

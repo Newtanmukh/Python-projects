@@ -3,3 +3,21 @@ abstract class is the one which has atleast pure virtual function.
 virtual void display()=0;  //by doing this, we will then have to compulsarily define this function in the derived class.
 also, we cannot create object of abstract class.
 pure virtual function is used to make abstract base class.
+
+
+if we dont provide implementation of the virtual fn in the derived class, then the derived class will
+also become an abstract class.
+
+1) A class is abstract if it has at least one pure virtual function. 
+
+2) We can have pointers and references of abstract class type. 
+
+3) If we do not override the pure virtual function in derived class, then derived class also becomes abstract class. 
+
+4) An abstract class can have constructors. 
+
+5) An abstract class in C++ can also be defined using struct keyword.
+
+Derived(int i, int j):Base(i) { y = j; } .
+
+

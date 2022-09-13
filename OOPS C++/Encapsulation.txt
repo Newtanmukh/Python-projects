@@ -1,0 +1,15 @@
+Encapsulation is defined as binding together the data and the functions that manipulates them. 
+
+Here the data of sales section and the employees that can manipulate them are wrapped under a single name “sales section”. 
+
+
+Encapsulation also lead to data abstraction or hiding. 
+As using encapsulation also hides the data.
+In the above example the data of any of the section like sales, 
+finance or accounts is hidden from any other section.
+
+
+for reference : https://stackoverflow.com/questions/28612420/what-is-encapsulation-exactly/28614407
+	another link:	https://beginnersbook.com/2013/05/encapsulation-in-java/
+	another link : https://www.sitesbay.com/java/java-encapsulation
+

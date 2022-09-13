@@ -1,0 +1,23 @@
+Data abstraction refers to providing only essential information about 
+the data to the outside world, hiding the background details or implementation.
+
+abstraction can be achieved using :
+
+
+1)classes :  Class helps us to group data members and member functions using 
+available ACCESS SPECIFIERS.
+ A Class can decide which data member will be visible to outside world and which is not.
+Say, the members that defines the internal implementation can be marked as private in a class.
+And the important information needed to be given to the outside world can be marked as public.
+
+2)header files : For example, consider the pow() method present in math.h header file.
+ Whenever we need to calculate power of a number,
+ we simply call the function pow() present in the math.h header file 
+and pass the numbers as arguments without knowing the underlying 
+algorithm according to which the function is actually calculating power of numbers.
+
+
+read this for more info : https://www.geeksforgeeks.org/abstraction-in-c/
+
+DIFFERENCE BETWEEN ENCAPSUALTION AND ABSTRACTION : https://www.geeksforgeeks.org/difference-between-abstraction-and-encapsulation-in-java-with-examples/
+
