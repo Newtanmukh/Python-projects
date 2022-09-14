@@ -1,0 +1,59 @@
+sometimes we dont want the derived class to override the base class's virtual function.
+we can do this by using the final specifier.
+
+EXAMPLE : 
+#include <iostream>
+using namespace std;
+
+class Base
+{
+public:
+ virtual void myfun() final
+ {
+  cout << "myfun() in Base";
+ }
+};
+class Derived : public Base
+{
+ void myfun()
+ {
+  cout << "myfun() in Derived\n";
+ }
+};
+
+int main()
+{
+ Derived d;
+ Base &b = d;
+ b.myfun();
+ return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+also, we can prevent the inheritance of a particular base class by using the final keyword.
+
+#include <iostream>
+class Base final
+{
+};
+
+class Derived : public Base
+{
+};
+
+int main()
+{
+ Derived d;
+ return 0;
+}
+//will give error.

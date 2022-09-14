@@ -1,0 +1,79 @@
+API stands for Application Programming Interface.
+It is a type of SOFTWARE INTERFACE,offering service to other pieces of software.
+
+It enables APP to exchange data and functionality easily and securely.
+APIs enables the product or servie to communicate with other products or services without having to know how they are implemented.
+it takes our request and tells the system what to do. basically API forms an abstraction, since we dont know how the system works inside. we just have got knowledge about the abstraction.
+The waiter then delivers the response back to us.
+API sits between an application and web server acting as layer that processes data transfer between systems.
+
+					HOW AN API WORKS?
+
+1) a client initiates an API call to retreive info known as request.
+	This request is processed from an app to web server via API's uniform resource identifier and includes a request verb,headers and request body.
+2)After receiving a valid request the API makes a call to the external program or web server.
+3)the server processes and sends response to the API with the requested information.
+4) The API transfers the data to the initial requesting application.
+
+
+just like User interface is to humans, APIs are designed to be used by computers or application.
+
+
+
+					REST API
+REST stands for Representational state transfer.
+REST relies on client and server approach,which separate front and back ends of the API, and provides flexibility in implementation.
+ADVANTAGE : implementation of the client and server can be done independently without knowing much about each other.
+
+APIs that adhere to RESTful principles are called REST APIs.
+
+A RESTful system consists of a:
+* client who request for the resources.
+* server who has the resources.
+
+in REST architecture the client send requests to retreive or modify resources and server send responses to those requests.
+
+
+
+
+a request in REST API generally consist of : 
+* an HTTP verb, which defines what kind of operation to perform;.
+* a header, which allow the client to pass info about the request.
+* path to the resource.
+* an optional message body, containing data.
+
+
+
+CRUD in REST API. (create,read,update,delete)
+=>HTTP Methods like GET,POST,PUT,DELETE come into picture.
+HTTP defines a set of request methods to indicate the desired action to be performed for given resource.
+these desired actions are called HTTP Verbs.
+create: POST
+read: GET
+Updste : PUT
+Delete : DELETE
+establishes tunnel to the server identified by specific URI. example is SSL tunneling.
+TRACE : it performs a loop back test alomg the path to the target resource to provide a useful debugging mechanism. 
+this basically allows the client to view whatever message is being received atht eh other 
+end of the request chain so that they can use the info for testing or diagnostic functions.
+
+
+
+	HTTP Status codes :
+
+100 : tells client to continue with the request.
+200 OK : successful transaction.
+300 : document has moved. the server might be configured to tell where exactly the document has moved.
+400 : error in the client  request. this means that server has detected an error in the client's request.
+500 : Internal server error. part of server encountered an erorr while trying to process the request.
+
+
+
+
+
+
+
+
+
+
+

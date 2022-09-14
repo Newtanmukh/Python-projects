@@ -1,0 +1,60 @@
+				STATIC VARIABLES IN A FUNCTION :
+
+  when variable is declared as static, space for it gets allocated for lifetime of the prpgram.
+				   even if the program is called multiple times, space for the static variable gets allocated 
+				only once and value of the variable in previous call gets carried throughtout the next function.
+
+EXAMPLE : 
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void demo()
+{
+
+ static int count = 0;//this value will get initialized only once, when the funciton is first called. after that the value of count will only keep on getting incremeneted as we keep calling the function.
+ cout << count << " ";
+
+ count++;
+}
+
+int main()
+{
+ for (int i=0; i<5; i++) 
+  demo();
+ return 0;
+}
+
+
+
+					STATIC VARIABLES IN A CLASS :
+
+initialized only once and sotred in static storage,
+static variables are shared by the objects.
+there CANNOT be multiple copies of static variables for different object.
+This is also the reason why static variables CANNOT by initialized by the constructor.
+
+also,, static variables should be explicitly by user using the class name and 
+scope resolution operator outside the class.
+like this
+
+int GfG::i = 1;
+syntax is 
+ data_type class_name::variable = data_value;
+
+
+
+					STATIC OBJECTS :
+
+scope of static object is throughout the lifetime of the program.
+for non static object,the lifetime is valid till the scope exists. once the scope gets over,destructor is invoked.
+
+also, we can directly access the static function inside a class using the scope resolution operator.
+static member functions can only access the static data members and static member functions.
+
+EXAMPLE :
+
+GFG::Printmsg() //directly calling the function using the scope resolution operator.
+
+
