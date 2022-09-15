@@ -1,0 +1,33 @@
+Single Responsibility
+Open/Closed Principle
+Liskov's substitution
+Interface Segregaion
+Dependency inversion.
+
+Single Responsibility : every class should have a single responsibility or a 
+			single purpose. giving multiple jobs can make god classes,	
+			and this makes code lengthy and complex. use layers 
+			and use modules.we should not implement everything into 
+			the current class.
+
+Open/Closed Principle : Software entities should be open for extension,but not for modification.
+			suppose that dev A wrote some code. some other dev B can extend the existing class
+			created by A but not supposed to modify the class directly. this allows us to separate
+			the existing code from the modified code. helps in maintainibility,
+
+Liskovv Substition :    any child class can be usable in place of parent without any interruption.
+
+Interface Segregation : do not force any client to implement an interface which is irrelevant to them.
+			your main goal is to focus on avoiding fat interface and give preference 
+			to many small client-specific interfaces. You should prefer many client 
+			interfaces rather than one general interface and each interface should
+			 have a specific responsibility.
+
+Dependency inversion : High-level modules/classes should not depend on low-level modules/classes
+			If a high module or class will be dependent more on low-level modules or
+			 class then your code would have tight coupling and if you will try to make
+		       a change in one class it can break another class which is risky at the 
+			production level. So always try to make classes loosely coupled as much
+			 as you can and you can achieve this through abstraction. The main motive 
+			of this principle is decoupling the dependencies so if class A changes the 
+			class B doesn’t need to care or know about the changes.
