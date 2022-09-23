@@ -14,7 +14,7 @@ also become an abstract class.
 
 3) If we do not override the pure virtual function in derived class, then derived class also becomes abstract class. 
 
-4) An abstract class can have constructors. 
+4) An abstract class can have constructors. while it does not make sense that like if we cant create object, why constructor. this is because, ub-classes will construct the base class when they are instantiated, they will call the constructor of their super class which is why abstract classes have constructors in c++.
 
 5) An abstract class in C++ can also be defined using struct keyword.
 
