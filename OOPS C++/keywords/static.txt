@@ -57,4 +57,5 @@ EXAMPLE :
 
 GFG::Printmsg() //directly calling the function using the scope resolution operator.
 
-
+//NOTE : we cannot use 'this' inside a static member function to refer to any data objects.(that data object can be static or non-static)
+	 however, we can access the static data members or functions inside a non-static function using this keyword. its just that static member functions dont allow this keyword to refer to any data member or function inside it.
