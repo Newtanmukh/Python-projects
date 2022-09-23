@@ -24,7 +24,16 @@ Example :
 		}
 	const keyword makes variables constant, such functions can never modify the object or its related data members
 
+this following code block will give error :
+
+	int Demo::get_data() const
+	{
+  	  x=x+1;
+   	 return x;
+	}
+
+
 4) inline functions : the ones defined inside
 
 5) friend functions  :give access to private amd protected members by non-class functions.
-		we can even define a member function of other class as a friend.
+			we can even define a member function of other class as a friend.
