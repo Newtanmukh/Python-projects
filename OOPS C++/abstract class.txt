@@ -9,6 +9,7 @@ if we dont provide implementation of the virtual fn in the derived class, then t
 also become an abstract class.
 
 1) A class is abstract if it has at least one pure virtual function. 
+ virtual int fun() = 0;
 
 2) We can have pointers and references of abstract class type. 
 

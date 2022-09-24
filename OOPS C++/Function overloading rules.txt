@@ -1,0 +1,9 @@
+Function declarations that differ only in the return type.
+
+Member function declarations with the same name and the name parameter-type-list cannot be overloaded if any of them is a static member function declaration inside a function
+
+Parameter declarations that differ only in a pointer * versus an array [] are equivalent.
+
+Parameter declarations that differ only in the presence or absence of const and/or volatile are equivalent
+
+for more visit : https://www.geeksforgeeks.org/function-overloading-in-c/

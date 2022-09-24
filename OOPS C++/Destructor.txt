@@ -9,7 +9,8 @@ Destructor should be declared in the public section of the program.
 
 Destructor is called in the reverse order of its constructor invocation.
 
-
+a virtual destructor ensures that when derived subclasses go out of scope or are deleted the order of destruction of each class in a hierarchy is carried out correctly.
+If the destruction order of the class objects is incorrect, in can lead to what is known as a memory leak. 
 
 
 EXAMPLE : 
