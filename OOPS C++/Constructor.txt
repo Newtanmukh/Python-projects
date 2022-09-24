@@ -5,7 +5,9 @@
 *virtual copy constructor
 * how constructors different from normal member fn.
 * can we have more than one constructor in class ------- constructor overloading.
-
+* we cannot have static constructor in C++.
+* constructor should be declared in public. though can be declared in private as well.
+* constructor cannot be virtual.
 
 
 
@@ -73,8 +75,8 @@ ClassName (const ClassName &old_object);
 //it is used to initialize the members of a newly created object by copying the members of an 
 already existing object.
 //copy constructor takes a reference to an object of the same class as an argument.
-//process of initializing members of an object through a copy constructor is known as copy initialization/
-//it is also called member wise initializaton because the copy constructor initializes one object with existing object both,both belonging to the same class on a member by member copy basis
+//process of initializing members of an object through a copy constructor is known as COPY initialization.
+//it is also called MEMBER WISE initializaton because the copy constructor initializes one object with existing object both,both belonging to the same class on a member by member copy basis
 //copy constructor can be defined by programmer,if programmer does not define the copy cons, the compiler will do it for us. then, the C++ compiler creates a default copy constructor for each class which does a member-wise copy between objects.
 //The compiler-created copy constructor works fine in general. We need to define our own copy constructor only if an object has pointers or any runtime allocation of the resource like file handle, a network connection, etc.
 
@@ -123,6 +125,9 @@ IMPORTANT :
 //deep copy clones the underlying data. it is not shared between the original and the copy.
 //shallow copy is quicker. rather than creating a copy , it simply copies over the pointer.
 
+//when we make the copy constructor private, the objects of that class become non-copyable.e. This is particularly useful when our class has pointers or dynamically allocated resources.
+//const because we dont want the object to get accidently modified.
+//argument to a copy constructor must be passed as a reference
 
 
 
