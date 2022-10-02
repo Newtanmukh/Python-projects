@@ -1,0 +1,46 @@
+Indexing is a way to optimize the performance of a database by minimizing the number of disk accesses 
+required when a query is processed.
+It is a data structure technique which is used to quickly locate and access the data in a database. 
+
+indexes are created using few database columns.
+
+*The first column is the Search key that contains a copy of the primary key or candidate key of the table. These values are stored in sorted order so that the corresponding data can be accessed quickly. 
+*The second column is the Data Reference or Pointer which contains a set of pointers holding the address of the disk block where that particular key value can be found.
+
+indexing has various attributes like insertion time(find appropiate space and insert the data.),deletion time, access time (time needed to find particular element or set of elements.),space overhead(additional spcae required by the object)
+
+
+
+
+
+################################################################################
+
+There are two types of file organizairon mechanism which are followed by indexing to store data.
+
+				 SEQUENTIAL FILE ORGANIZATION OR ORDERED INDEX FILE : 
+
+indices are based on sorted ordering of values. they are generally fast and more traditional type of storing mechanis,.
+further we can store these ordered data in dense or sparse format.
+
+Dense Index : for every search key value in data file, there is a record which contains the search key and also the reference to the first data record with that search key value.
+		for every search key value there is index record, hence the name dense index.
+
+Sparse Index : index record appears only for a few items in the data file. each item points to a block.
+	       to locate a record we find the index record with the largest search key value less than or equal to the search key value we are looking for.
+		we start at the record pointed to by the index record, and proceed along with the pointers in the file until we find the desired record.
+
+
+
+
+				HASH FILE ORGANIZATION :
+*Indices are based on the values being distributed uniformly across a range of buckets. The buckets to which a value is assigned is determined by a function called a hash function.
+*the buckets to which a value is assigned is determined by a function called hash function.
+
+
+
+
+CLUSTERED INDEXING : 
+
+		
+
+
